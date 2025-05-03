@@ -38,3 +38,12 @@ passGenerationBtn.addEventListener('click' , ()=>{
         passLength.value = ''
     }
 })
+// == Command to excecute password copy
+const copyPass = document.getElementById('copyPass')
+copyPass.addEventListener('click' , ()=>{
+    // == getting the input field where the password is generated
+    const passInput = document.querySelector('.generatedPass').value
+    navigator.clipboard.writeText(passInput) // This copies the password from the input field
+    .then(()=>{alert('Password successfully copied to clipboard')}) // This alert the user of successful copied password
+    .catch((err)=>{alert('copy password fail'); console.error(err);})   // This is in case of an error in copying the password
+})
